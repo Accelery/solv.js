@@ -1,0 +1,46 @@
+{
+  "name": "solv.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "postversion": "git push && git push --tags",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "version": "npm run format && git add -A src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Accelery/solv.js.git"
+  },
+  "keywords": [
+    "Solver",
+    "Goal Seek",
+    "Root finding"
+  ],
+  "author": "Accelery",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Accelery/solv.js/issues"
+  },
+  "homepage": "https://github.com/Accelery/solv.js#readme",
+  "devDependencies": {
+    "@types/jest": "^25.1.5",
+    "jest": "^25.2.6",
+    "prettier": "^2.0.2",
+    "ts-jest": "^25.3.0",
+    "tslint": "^6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  }
+}
