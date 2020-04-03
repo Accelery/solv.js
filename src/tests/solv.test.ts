@@ -12,7 +12,12 @@ test('It should find the solution for a simple linear function with defaults', (
 
 test('It should find the solution for a quadratic function with defaults', () => {
   const solution = solve((x) => Math.pow(x, 2) + 5 * x + 6);
-  expect(solution).toBeCloseTo(-2, 2);
+  expect(solution).toBeCloseTo(-2, 3);
+});
+
+test('It should find the solution if the guess is a solution', () => {
+  const solution = solve((x) => Math.pow(x, 2) + 5 * x + 6, 0, -3);
+  expect(solution).toBe(-3);
 });
 
 test('It should find the solution for a quadratic function with higher precision', () => {
