@@ -16,11 +16,11 @@ The method signature is as follows:
 
 ```js
 solve(
-    func: (number) => number,
+    func: (x: number) => number,
     goal: number = 0,
+    guess: number = 0, // A guess to speed up the process
     precision: number = 0.01, // Absolute acceptable difference with goal
     maxIterations: number = 100, // Maximum number of iteration before it fails to converge
-    guess: number = 0, //
 ): number
 ```
 
@@ -35,9 +35,10 @@ All function parameters are optional except the `func` parameter.
 var solve = require('solv.js');
 
 // Examples:
-var solution = solve(x => x + 7); // -7
-var error1 = solve(x => 'Hello there'); // Throws an error
-var error2 = solve(x => x * x, -1); // Throws an error
+var solution1 = solve((x) => x + 7); // -7
+var solution2 = solve((x) => x * x + 5 * x + 6); // -1.999
+var error1 = solve((x) => 'Hello there'); // Throws an error
+var error2 = solve((x) => x * x, -1); // Throws an error
 ```
 
 ### Typescript
@@ -47,9 +48,9 @@ var error2 = solve(x => x * x, -1); // Throws an error
 import { solve } from 'solv.js';
 
 // Examples:
-const solution = solve(x => x + 7); // -7
-const error1 = solve(x => 'Hello there'); // Throws an error
-const error2 = solve(x => x * x, -1); // Throws an error
+const solution = solve((x) => x + 7); // -7
+const error1 = solve((x) => 'Hello there'); // Throws an error
+const error2 = solve((x) => x * x, -1); // Throws an error
 ```
 
 ## Credits

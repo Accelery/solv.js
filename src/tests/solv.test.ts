@@ -16,7 +16,7 @@ test('It should find the solution for a quadratic function with defaults', () =>
 });
 
 test('It should find the solution for a quadratic function with higher precision', () => {
-  const solution = solve((x) => Math.pow(x, 2) + 5 * x + 6, 0, Math.pow(10, -9));
+  const solution = solve((x) => Math.pow(x, 2) + 5 * x + 6, 0, 0, Math.pow(10, -9));
   expect(solution).toBeCloseTo(-2, 9);
 });
 
@@ -32,6 +32,6 @@ test('It should throw an error as goal outside of domain', () => {
 });
 
 test('It should throw an error as precision too high for number of iterations', () => {
-  const solutionFinder = () => solve((x) => Math.pow(x, 2) + 5 * x + 6, 0, Math.pow(10, -9), 3);
+  const solutionFinder = () => solve((x) => Math.pow(x, 2) + 5 * x + 6, 0, 0, Math.pow(10, -9), 3);
   expect(solutionFinder).toThrow();
 });

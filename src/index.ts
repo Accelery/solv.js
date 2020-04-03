@@ -1,9 +1,9 @@
 export const solve = (
   func: (variable: number) => number,
   goal: number = 0,
+  guess: number = 0,
   precision: number = 0.01,
   maxIterations: number = 100,
-  guess: number = 0,
 ) => {
   let x0: number = guess;
   let x1: number;
@@ -14,7 +14,7 @@ export const solve = (
   // Check of guess is already close enough to the goal
   f_x0 = func(x0);
   if (Math.abs(goal - f_x0) < precision) {
-    return f_x0;
+    return x0;
   }
 
   // Iterate to get closer to goal.
