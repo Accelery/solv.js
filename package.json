@@ -23,8 +23,8 @@
     "Goal Seek",
     "Root finding"
   ],
-  "author": "Accelery",
-  "license": "ISC",
+  "author": "Accelery <team@accelery.be>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Accelery/solv.js/issues"
   },
