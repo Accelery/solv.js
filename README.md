@@ -33,16 +33,31 @@ All function parameters are optional except the `func` parameter.
 
 ```js
 // Import the solve function.
-var solve = require('solv.js');
+var SolvJS = require('solv.js');
 
 // Examples:
-var solution1 = solve((x) => x + 7); // -7
-var solution2 = solve((x) => x * x + 5 * x + 6); // -1.9995882538671066
-var solution3 = solve((x) => x * x + 5 * x + 6, 0, -3); // -3
-var solution4 = solve((x) => x * x + 5 * x + 6, 0, 0, Math.pow(10, -9)); // -1.9999999999997717
+var solution1 = SolvJS.solve((x) => x + 7); // -7
+var solution2 = SolvJS.solve((x) => x * x + 5 * x + 6); // -1.9995882538671066
+var solution3 = SolvJS.solve((x) => x * x + 5 * x + 6, 0, -3); // -3
+var solution4 = SolvJS.solve((x) => x * x + 5 * x + 6, 0, 0, Math.pow(10, -9)); // -1.9999999999997717
 
-var error1 = solve((x) => 'Hello there'); // Throws an error
-var error2 = solve((x) => x * x, -1); // Throws an error
+// A more elaborate example
+function costPizzas(meetingParticipants) {
+  const numberOfPizzas = Math.ceil(meetingParticipants / 4);
+  const pricePerPizza = numberOfPizzas < 4 ? 20.95 : 20.95 * 0.9;
+  return numberOfPizzas * pricePerPizza;
+}
+function costDrinks(meetingParticipants) {
+  return meetingParticipants * 4.5;
+}
+
+function costMeeting(meetingParticipants) {
+  return costPizzas(meetingParticipants) + costDrinks(meetingParticipants);
+}
+const meetingParticipantsFor250 = SolvJS.solve(costMeeting, 250);
+
+var error1 = SolvJS.solve((x) => 'Hello there'); // Throws an error
+var error2 = SolvJS.solve((x) => x * x, -1); // Throws an error
 ```
 
 ### Typescript
@@ -56,6 +71,18 @@ const solution1 = solve((x) => x + 7); // -7
 const solution2 = solve((x) => x * x + 5 * x + 6); // -1.9995882538671066
 const solution3 = solve((x) => x * x + 5 * x + 6, 0, -3); // -3
 const solution4 = solve((x) => x * x + 5 * x + 6, 0, 0, Math.pow(10, -9)); // -1.9999999999997717
+
+// A more elaborate example
+const costPizzas = (meetingParticipants: number) => {
+  const numberOfPizzas = Math.ceil(meetingParticipants / 4);
+  const pricePerPizza = numberOfPizzas < 4 ? 20.95 : 20.95 * 0.9;
+  return numberOfPizzas * pricePerPizza;
+};
+const costDrinks = (meetingParticipants: number) => meetingParticipants * 4.5;
+const costMeeting = (meetingParticipants: number) => {
+  return costPizzas(meetingParticipants) + costDrinks(meetingParticipants);
+};
+const meetingParticipantsFor250 = solve(costMeeting, 250); // 26.225555555555548
 
 const error1 = solve((x) => 'Hello there'); // Throws an error
 const error2 = solve((x) => x * x, -1); // Throws an error
