@@ -10,8 +10,18 @@ test('It should find the solution for a simple linear function with defaults', (
   expect(solution).toBe(7);
 });
 
+test('It should find the solution for a simple linear function with a goal different than 0', () => {
+  const solution = solve((x) => x - 7, 15);
+  expect(solution).toBe(22);
+});
+
 test('It should find the solution for a quadratic function with defaults', () => {
   const solution = solve((x) => Math.pow(x, 2) + 5 * x + 6);
+  expect(solution).toBeCloseTo(-2, 3);
+});
+
+test('It should find the solution for a quadratic function with a goal different than 0', () => {
+  const solution = solve((x) => Math.pow(x, 2) + 5 * x, -6);
   expect(solution).toBeCloseTo(-2, 3);
 });
 

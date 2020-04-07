@@ -1,6 +1,7 @@
 # Solv.js 💡
 
 [![npm badge][2]][1]
+![Unit Tests](https://github.com/Accelery/solv.js/workflows/Unit%20Tests/badge.svg?branch=master)
 
 Solv.js finds the right input value to a function for a predefined output value. It uses the [Steffensen's Method](https://en.wikipedia.org/wiki/Steffensen%27s_method).
 
@@ -36,7 +37,10 @@ var solve = require('solv.js');
 
 // Examples:
 var solution1 = solve((x) => x + 7); // -7
-var solution2 = solve((x) => x * x + 5 * x + 6); // -1.999
+var solution2 = solve((x) => x * x + 5 * x + 6); // -1.9995882538671066
+var solution3 = solve((x) => x * x + 5 * x + 6, 0, -3); // -3
+var solution4 = solve((x) => x * x + 5 * x + 6, 0, 0, Math.pow(10, -9)); // -1.9999999999997717
+
 var error1 = solve((x) => 'Hello there'); // Throws an error
 var error2 = solve((x) => x * x, -1); // Throws an error
 ```
@@ -48,7 +52,11 @@ var error2 = solve((x) => x * x, -1); // Throws an error
 import { solve } from 'solv.js';
 
 // Examples:
-const solution = solve((x) => x + 7); // -7
+const solution1 = solve((x) => x + 7); // -7
+const solution2 = solve((x) => x * x + 5 * x + 6); // -1.9995882538671066
+const solution3 = solve((x) => x * x + 5 * x + 6, 0, -3); // -3
+const solution4 = solve((x) => x * x + 5 * x + 6, 0, 0, Math.pow(10, -9)); // -1.9999999999997717
+
 const error1 = solve((x) => 'Hello there'); // Throws an error
 const error2 = solve((x) => x * x, -1); // Throws an error
 ```

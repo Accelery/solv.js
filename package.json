@@ -1,7 +1,7 @@
 {
   "name": "solv.js",
   "version": "1.2.0",
-  "description": "",
+  "description": "Finds the right input value to a function for a predefined output value.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
