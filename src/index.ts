@@ -3,9 +3,9 @@
  *
  * @param {(variable: number) => number} functionToSolveFor
  * @param {number} [targetResult=0]
- * @param {number} [initialGuess=0]
- * @param {number} [precision=0.01]
- * @param {number} [maxIterations=100]
+ * @param {number} [initialGuess=0] A guess to speed up the process
+ * @param {number} [precision=0.01] Absolute acceptable difference with goal
+ * @param {number} [maxIterations=100] Maximum number of iteration before it fails to converge
  * @returns
  */
 export const solve = (
