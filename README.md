@@ -16,12 +16,12 @@ npm i --save solv.js
 The method signature is as follows:
 
 ```js
-solve(
-    func: (x: number) => number,
-    goal: number = 0,
-    guess: number = 0, // A guess to speed up the process
-    precision: number = 0.01, // Absolute acceptable difference with goal
-    maxIterations: number = 100, // Maximum number of iteration before it fails to converge
+solve = (
+  functionToSolveFor: (x: number) => number,
+  targetResult: number = 0,
+  initialGuess: number = 0, // A guess to speed up the process
+  precision: number = 0.01, // Absolute acceptable difference with goal
+  maxIterations: number = 100, // Maximum number of iteration before it fails to converge
 ): number
 ```
 
