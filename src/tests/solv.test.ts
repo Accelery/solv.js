@@ -50,3 +50,17 @@ test('It should throw an error as precision too high for number of iterations', 
   const solutionFinder = () => solve((x) => Math.pow(x, 2) + 5 * x + 6, 0, 0, Math.pow(10, -9), 3);
   expect(solutionFinder).toThrow();
 });
+
+test('It should find the right solution to pizzas', () => {
+  const costPizzas = (meetingParticipants: number) => {
+    const numberOfPizzas = Math.ceil(meetingParticipants / 4);
+    const pricePerPizza = numberOfPizzas < 4 ? 20.95 : 20.95 * 0.9;
+    return numberOfPizzas * pricePerPizza;
+  };
+  const costDrinks = (meetingParticipants: number) => meetingParticipants * 4.5;
+  const costMeeting = (meetingParticipants: number) => {
+    return costPizzas(meetingParticipants) + costDrinks(meetingParticipants);
+  };
+  const meetingParticipantsFor250 = solve(costMeeting, 250);
+  expect(meetingParticipantsFor250).toBeCloseTo(26.225, 2)
+})
